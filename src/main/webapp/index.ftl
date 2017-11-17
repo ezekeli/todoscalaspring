@@ -2,8 +2,8 @@
 <head>
     <title>Hello task!</title>
     <link rel="stylesheet" type="text/css"
-          href="css/style.css" />
-    <script src="js/script.js"></script>
+          href="/css/style.css" />
+    <script src="/js/script.js"></script>
 </head>
 <body>
 <div id="myDIV" class="header">

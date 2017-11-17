@@ -1,9 +1,14 @@
 package springapp.domain
 
 import javax.persistence._
+
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.json4s.jackson.JsonMethods.{pretty, render}
 import org.json4s.JsonDSL._
+import springapp.util.JSONUtil
+
 import scala.beans.BeanProperty
+import scala.util.Try
 
 
 @Entity
@@ -25,7 +30,15 @@ class Task(t:String, c:String) {
   var content: String = c
 
   def this() = this (null, null)
-  override def toString: String = s"($title: $content)"
 
-  def toJson: String = pretty(render(("title" -> this.title) ~ ("content" -> this.content)))
+  override def toString: String = s"($title: $content)"
+  def toJson: String = JSONUtil.toJson(this)
+}
+
+object Task {
+//  def apply(): Task = new Task(null, null)
+
+//  private val mapper = new ObjectMapper()
+//  def toJson(task: Task) = mapper.writeValueAsString(task)
+//  def fromJson(string: String):Try[Task] = Try(mapper.readValue(string, classOf[Task]))
 }
